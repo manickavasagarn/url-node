@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const key = "12345678";
 const BitlyClient = require("bitly").BitlyClient;
 const bitly = new BitlyClient("09dec3e1f4c69a8153c51d8b0ff2e09e60516da1");
+const process = require("process");
 app.use(
   cors({
     origin: "*",
@@ -116,4 +117,4 @@ app.get("/register", async function (req, res) {
     console.log(error);
   }
 });
-app.listen(3001);
+app.listen(process.env.PORT ||3001);
