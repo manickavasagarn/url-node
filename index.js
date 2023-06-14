@@ -30,7 +30,7 @@ let authenticate = function (req, res, next) {
   }
 };
 
-app.get("/geturl/:email",async function(req,res){
+app.get("/geturl/:email",authenticate,async function(req,res){
     req.params.email;
     try {
         var connection = await mongoclient.connect(url);
